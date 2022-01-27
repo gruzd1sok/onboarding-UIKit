@@ -211,5 +211,10 @@ class OnboardingViewController: UIViewController {
     
     @objc func endButton() {
 //      when end
+        let vc = ViewController()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        
+        show(vc, sender: self)
     }
 }
