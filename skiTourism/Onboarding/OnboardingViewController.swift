@@ -117,8 +117,10 @@ class OnboardingViewController: UIViewController {
         
 //        change func to button in last page
         if currentIndex == imageArray.count - 1 {
+            nextButton.removeTarget(self, action: #selector(handleRightTap), for: .touchUpInside)
             nextButton.addTarget(self, action: #selector(endButton), for: .touchUpInside)
         } else {
+            nextButton.removeTarget(self, action: #selector(endButton), for: .touchUpInside)
             nextButton.addTarget(self, action: #selector(handleRightTap), for: .touchUpInside)
         }
     }
