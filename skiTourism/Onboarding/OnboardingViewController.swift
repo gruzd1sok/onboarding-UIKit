@@ -10,6 +10,7 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
+//    some data?
     let imageArray = [UIImage(named: "Onboarding1"),
                       UIImage(named: "Onboarding2"),
                       UIImage(named: "Onboarding3"),
@@ -27,12 +28,11 @@ class OnboardingViewController: UIViewController {
         
         view.backgroundColor = .red
         setup()
-        
         configure()
     }
     
     func setup() {
-        
+//        setup left/right views/recognizers to change "pages"
         view.addSubview(leftView)
         view.addSubview(rightView)
         
@@ -60,7 +60,7 @@ class OnboardingViewController: UIViewController {
         leftView.addGestureRecognizer(leftTap)
         rightView.addGestureRecognizer(rightTap)
         
-        
+//        add imageView in fullscreen
         view.addSubview(imgView)
         imgView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -74,7 +74,6 @@ class OnboardingViewController: UIViewController {
         ])
         
         view.addSubview(nextButton)
-        
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.backgroundColor = .white
         nextButton.layer.cornerRadius = 8
@@ -108,6 +107,7 @@ class OnboardingViewController: UIViewController {
     }
     
     func configure() {
+//        set image with currentIndex
         UIView.transition(with: imgView,
                           duration: 0.25,
                           options: .transitionCrossDissolve,
@@ -115,6 +115,7 @@ class OnboardingViewController: UIViewController {
                           completion: nil)
         pageControl.currentPage = currentIndex
         
+//        change func to button in last page
         if currentIndex == imageArray.count - 1 {
             nextButton.addTarget(self, action: #selector(endButton), for: .touchUpInside)
         } else {
@@ -123,7 +124,7 @@ class OnboardingViewController: UIViewController {
     }
     
     @objc func handleLeftTap() {
-        
+//        changing color for our background to look good
         if currentIndex == 2 {
             UIView.transition(with: nextButton,
                               duration: 0.25,
@@ -151,7 +152,7 @@ class OnboardingViewController: UIViewController {
                               animations: { self.pageControl.currentPageIndicatorTintColor = .white },
                               completion: nil)
         }
-        
+//        if we on last page and going back, change button text to default
         if currentIndex == imageArray.count-1 {
             nextButton.setTitle("Next", for: .normal)
         }
@@ -165,7 +166,7 @@ class OnboardingViewController: UIViewController {
     }
     
     @objc func handleRightTap() {
-        
+//        changing color for our background to look good
         if currentIndex == 0 {
             UIView.transition(with: nextButton,
                               duration: 0.25,
@@ -193,7 +194,7 @@ class OnboardingViewController: UIViewController {
                               animations: { self.pageControl.currentPageIndicatorTintColor = .white },
                               completion: nil)
         }
-        
+//        if we at pre-last page, we need set on last page new text on button
         if currentIndex == imageArray.count-2 {
             nextButton.setTitle("End", for: .normal)
         }
