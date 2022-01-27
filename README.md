@@ -5,7 +5,7 @@
 
 ## My realization of onboarding screen in UIKit 🙂
 
-![me](https://vk.com/doc41697612_627350719) 
+<img src="https://vk.com/doc41697612_627350719" alt="main app" width="200" height="400">
 
 - UIKit
 - Some simple animations
